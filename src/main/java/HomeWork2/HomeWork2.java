@@ -1,30 +1,33 @@
 package HomeWork2;
 
+
+
 public class HomeWork2 {
     public static void main(String[] args) {
 
-        System.out.println(isSumBetweenTenAndTwenty(15,5));
-        isNumbPositive(0);
-        isNumbPositive(-10);
-        isNumbPositive(200);
-        System.out.println(isNumbNegativeBool(-5));
-        printString("Hello", 5);
-        isMonthColdOrWarm(MonthEnums.AUGUST.AUGUST);
-        isMonthColdOrWarm(MonthEnums.OCTOBER);
+//        System.out.println(isSumBetweenTenAndTwenty(15,5));
+//        isNumbPositive(0);
+//        isNumbPositive(-10);
+//        isNumbPositive(200);
+//        System.out.println(isNumbNegativeBool(-5));
+//        printString("Hello", 5);
         isMonthColdOrWarm(MonthEnums.JANUARY);
-        isMonthColdOrWarm(MonthEnums.MARCH);
+        isMonthColdOrWarm(MonthEnums.APRIL);
+        isMonthColdOrWarm(MonthEnums.JULY);
+        isMonthColdOrWarm(MonthEnums.SEPTEMBER);
 
-        System.out.println(isYearLeap(1));
-        System.out.println(isYearLeap(4));
-        System.out.println(isYearLeap(100));
-        System.out.println(isYearLeap(400));
-        System.out.println(isYearLeap(1600));
-        System.out.println(isYearLeap(2021));
-        System.out.println(isYearLeap(2012));
-        System.out.println(isYearLeap(2015));
-        System.out.println(isYearLeap(2016));
-        System.out.println(isYearLeap(2028));
-        System.out.println(isYearLeap(2100));
+
+//        System.out.println(isYearLeap(1));
+//        System.out.println(isYearLeap(4));
+//        System.out.println(isYearLeap(100));
+//        System.out.println(isYearLeap(400));
+//        System.out.println(isYearLeap(1600));
+//        System.out.println(isYearLeap(2021));
+//        System.out.println(isYearLeap(2012));
+//        System.out.println(isYearLeap(2015));
+//        System.out.println(isYearLeap(2016));
+//        System.out.println(isYearLeap(2028));
+//        System.out.println(isYearLeap(2100));
 
     }
 
@@ -48,7 +51,7 @@ public class HomeWork2 {
 
     public static boolean isNumbNegativeBool(int a){
         if(a < 0){
-            return true;
+            return a < 0;
         } else {
             return false;
         }
