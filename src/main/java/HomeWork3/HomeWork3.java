@@ -91,14 +91,18 @@ public class HomeWork3 {
 //         */
 //
 //        System.out.println(isSumTheSame(arraySeven));
+//
+//        int[] array = { 1, 1, 1, 2, 1 };
+//        System.out.println("Результат: "+ isSumTheSame(array));
+//
+//
+//        badChangePlaces(new int[]{0, 1, 2, 3, 4, 5, 6}, 1);
+//
+//        System.out.println();
 
-        isSumTheSame(new int[]{1,1,1,2,1});
-        isSumTheSame(new int[]{5,5,1,2,1,1,5});
-//        badChangePlaces(new int[]{0, 1, 2, 3, 4, 5, 6}, -2);
+        changePlaces(new int[]{0, 1, 2, 3, 4, 5, 6}, 2); //5601234
         System.out.println();
-
-        //changePlaces(new int[]{0, 1, 2, 3, 4, 5, 6}, 1); //5601234
-
+        changePlaces(new int[]{0, 1, 2, 3, 4, 5, 6}, -2);
 
 
     }
@@ -116,18 +120,18 @@ public class HomeWork3 {
         int[] array2 = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             if (n >= 0) {
-                    if (i + n < array.length) {
-                        array2[i] = array[i + n];
-                    } else {
-                        array2[i] = array[a];
-                        a++;
-                    }
+                if (i + n < array.length) {
+                    array2[i] = array[i + n];
+                } else {
+                    array2[i] = array[a];
+                    a++;
+                }
                 System.out.print(array2[i] + " ");
             } else {
                 if (i + n < 0) {
                     array2[i] = array[array.length + n + i];
                 } else {
-                    array2[i] = array[i + n];
+                    array2[i] = array[n];
 
                 }
                 System.out.print(array2[i] + " ");
@@ -137,24 +141,45 @@ public class HomeWork3 {
         return array2;
     }
 
-//    public static int[] changePlaces(int[] array, int n) {
-//        int a = 0;
-//        int tmp;
-//
-//        for (int i = 0; i < array.length; i++) {
-//
-//                tmp = array[i];
-//                array[i] = array[i+1];
-//                array[i+1] = tmp;
-//
-//            System.out.print(array[i] + " ");
-//
-//
-//        }
-//        return array;
-//
-//
-//    }
+    /**
+     *  ПОЧТИ ПОЛУЧИЛОСЬ
+     * @param array
+     * @param n
+     * @return
+     */
+    public static int[] changePlaces(int[] array, int n) {
+        int tmp;
+        int a = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (n > 0) {
+                tmp = array[i];
+                if (i + n < array.length) {
+                    array[i] = array[i + n];
+                    array[i + n] = tmp;
+                    System.out.print(array[i] + " ");
+                } else {
+                    array[i] = a;
+                    a++;
+                    System.out.print(array[i] + " ");
+                }
+            } else {
+                tmp = array[i];
+                if (i + n < 0){
+                    array[i] = array[array.length + n + i];
+                    array[array.length + n + i] = tmp;
+                    System.out.print(array[i] + " ");
+                } else {
+                    array[i] = a;
+                    a++;
+                    System.out.print(array[i] + " ");
+                }
+
+            }
+        }
+        return array;
+    }
+}
+
 //    public static int[] helpMethod(int[] array, int n){
 //        for (int i = 0; i < array.length; i++) {
 //            int tmp = array[0];
@@ -166,36 +191,33 @@ public class HomeWork3 {
 //
 //
 //    }
-
-
-
-
-
-
-
-
-    /**
-     * №7
-     * @param array - не пустой одномерный целочисленный массив
-     * @return true, если в массиве есть место, в котором сумма левой и правой части массива равны
-     */
-    public static boolean isSumTheSame(int[] array) {
-        int beginSum = 0;
-        int endSum = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i]; j++) {
-                beginSum += array[j];
-                endSum += array[array.length - 1 - j];
-
-            }
-
-        }
-
-        System.out.println(beginSum);
-        System.out.println(endSum);
-        return true;
-    }
-}
+//
+//
+//    /**
+//     * №7
+//     *
+//     * @param array - не пустой одномерный целочисленный массив
+//     * @return true, если в массиве есть место, в котором сумма левой и правой части массива равны
+//     */
+//    public static boolean isSumTheSame(int[] array) {
+//        for (int i = 0; i < array.length; i++) {
+//            int sum = 0;
+//            for (int j = 0; j < i; j++){
+//                sum += array[j];
+//                System.out.println(sum);
+//            }
+//            for (int j = i; j < array.length; j++){
+//                sum -= array[j];
+//                System.out.println(sum);
+//            }
+//            if (sum == 0)
+//                return true;
+//        }
+//        return false;
+//
+//
+//    }
+//}
 
 
 
