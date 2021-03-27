@@ -11,23 +11,23 @@ public class HomeWork2 {
 //        isNumbPositive(200);
 //        System.out.println(isNumbNegativeBool(-5));
 //        printString("Hello", 5);
-        isMonthColdOrWarm(MonthEnums.JANUARY);
-        isMonthColdOrWarm(MonthEnums.APRIL);
-        isMonthColdOrWarm(MonthEnums.JULY);
-        isMonthColdOrWarm(MonthEnums.SEPTEMBER);
+//        isMonthColdOrWarm(MonthEnums.JANUARY);
+//        isMonthColdOrWarm(MonthEnums.APRIL);
+//        isMonthColdOrWarm(MonthEnums.JULY);
+//        isMonthColdOrWarm(MonthEnums.SEPTEMBER);
 
 
-//        System.out.println(isYearLeap(1));
-//        System.out.println(isYearLeap(4));
-//        System.out.println(isYearLeap(100));
-//        System.out.println(isYearLeap(400));
-//        System.out.println(isYearLeap(1600));
-//        System.out.println(isYearLeap(2021));
-//        System.out.println(isYearLeap(2012));
-//        System.out.println(isYearLeap(2015));
-//        System.out.println(isYearLeap(2016));
-//        System.out.println(isYearLeap(2028));
-//        System.out.println(isYearLeap(2100));
+        System.out.println(isYearLeap(1));
+        System.out.println(isYearLeap(4));
+        System.out.println(isYearLeap(100));
+        System.out.println(isYearLeap(400));
+        System.out.println(isYearLeap(1600));
+        System.out.println(isYearLeap(2021));
+        System.out.println(isYearLeap(2012));
+        System.out.println(isYearLeap(2015));
+        System.out.println(isYearLeap(2016));
+        System.out.println(isYearLeap(2028));
+        System.out.println(isYearLeap(2100));
 
     }
 
