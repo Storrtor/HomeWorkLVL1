@@ -5,90 +5,20 @@ import java.util.Arrays;
 public class HomeWork3 {
     public static void main(String[] args) {
 
-        /**
-         * №1
-         *  Задать целочисленный массив, состоящий из элементов 0 и 1.
-         *  С помощью цикла и условия заменить 0 на 1, 1 на 0.
-         */
-        int[] arrayZeroOne = {1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1};
-        for (int i = 0; i < arrayZeroOne.length; i++) {
-            if (arrayZeroOne[i] == 0) {
-                arrayZeroOne[i] = 1;
-            } else {
-                arrayZeroOne[i] = 0;
-            }
-        }
-        System.out.println(Arrays.toString(arrayZeroOne));
+        changeOneToZero(new int[]{1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1});
 
+        fillArray(new int[100]);
 
-        /**
-         * #2
-         * Задать пустой целочисленный массив длиной 100.
-         * С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 … 100.
-         */
-        int[] emptyArray = new int[100];
-        for (int i = 0; i < emptyArray.length; i++) {
-            emptyArray[i] = i + 1;
-        }
-        System.out.println(Arrays.toString(emptyArray));
+        multiplicationArray(new int[]{ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1});
 
-        /**
-         * №3
-         * Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ]
-         * пройти по нему циклом, и числа меньшие 6 умножить на 2
-         */
-        int[] array = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < 6) {
-                array[i] = array[i] * 2;
-            }
-        }
-        System.out.println(Arrays.toString(array));
+        fillOneToDiagonal(5);
 
-        /**
-         * N4
-         * Создать квадратный двумерный целочисленный массив
-         * и заполнить его диагональные элементы единицами.
-         */
-        int n = 7;
-        int[][] arrayDiagonal = new int[n][n];
-        for (int i = 0; i < arrayDiagonal.length; i++) {
-            for (int j = 0; j < arrayDiagonal[i].length; j++) {
-                if (i == j || i + j == n - 1) {
-                    arrayDiagonal[i][j] = 1;
-                }
-                System.out.print(" " + arrayDiagonal[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-
-        /**
-         * №5
-         */
         arrayGivenLengthAndValue(10, 25);
         System.out.println();
 
-        /**
-         * №6
-         *  Задать одномерный массив и найти в нем минимальный и максимальный элементы
-         */
-        int[] arrayMaxMin = {0, -50, 25, 66, 33, 150, -10};
-        int min = arrayMaxMin[0];
-        int max = arrayMaxMin[0];
-        for (int i = 0; i < arrayMaxMin.length; i++) {
-            if (arrayMaxMin[i] < min) {
-                min = arrayMaxMin[i];
-            } else if (arrayMaxMin[i] > max) {
-                max = arrayMaxMin[i];
-            }
-        }
-        System.out.println("Минимальный: " + min);
-        System.out.println("Макисмальный: " + max);
-
+        findMaxAndMin(new int[]{0, -50, 25, 66, 33, 150, -10});
 
         System.out.println("Результат: " + isSumTheSame(new int[]{1, 1, 2, 4}));
-
 
         changePlaces(new int[]{0, 1, 2, 3, 4}, 2);
         System.out.println();
@@ -96,21 +26,102 @@ public class HomeWork3 {
 
     }
 
+    /**  №1
+     * @param array целочисленный массив, состоящий из эдементов 0 и 1.
+     * @return массив в котором заменяется 0 на 1, 1 на 0.
+     */
+    public static int[] changeOneToZero(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 0) {
+                array[i] = 1;
+            } else {
+                array[i] = 0;
+            }
+        }
+        System.out.println(Arrays.toString(array));
+        return array;
+    }
+
+    /**
+     * #2
+     * Задать пустой целочисленный массив длиной 100.
+     * С помощью цикла заполнить его значениями 1 2 3 4 5 6 7 8 … 100.
+     */
+    public static int[] fillArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
+        }
+        System.out.println(Arrays.toString(array));
+        return array;
+    }
+
+    /**
+     * №3
+     * Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ]
+     * пройти по нему циклом, и числа меньшие 6 умножить на 2
+     */
+    public static int[] multiplicationArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 6) {
+                array[i] = array[i] * 2;
+            }
+        }
+        System.out.println(Arrays.toString(array));
+        return array;
+
+    }
+
+    /**
+     * N4
+     * Создать квадратный двумерный целочисленный массив
+     * и заполнить его диагональные элементы единицами.
+     */
+    public static int[][] fillOneToDiagonal(int n){
+        int[][] array = new int[n][n];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (i == j || i + j == n - 1) {
+                    array[i][j] = 1;
+                }
+                System.out.print(" " + array[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return array;
+    }
+
     /**
      * № 5
-     *
      * @param len          - длина массива
      * @param initialValue - значение массива
      * @return одномерный массив
      */
     public static int[] arrayGivenLengthAndValue(int len, int initialValue) {
         int array[] = new int[len];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = initialValue;
-            System.out.print(array[i] + " ");
-        }
+        Arrays.fill(array,initialValue);
         return array;
     }
+
+    /**
+     * №6
+     *  Задать одномерный массив и найти в нем минимальный и максимальный элементы
+     */
+    public static int[] findMaxAndMin(int[] array){
+        int min = array[0];
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            } else if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        System.out.println("Минимальный: " + min);
+        System.out.println("Макисмальный: " + max);
+        return array;
+
+    }
+
 
     /**
      * №7
