@@ -80,30 +80,35 @@ public class CrossAndZeroes {
     public static void aiTurn(int size) {
         System.out.println();
         do {
-            //Диагонали
-
+            //Диагонали работают
+            if (dots_to_win == count1 - 2) {
                 for (int i = 0; i < map.length; i++) {
                     for (int j = 0; j < map[i].length; j++) {
-                        if(!isCellValid(x, y,size) && i + j == map.length - 1) {
-                            x = i;
-                            y = j;
+                        if(i + j == map.length - 1) {
+                            if(!isCellValid(x, y,size)) {
+                                x = i;
+                                y = j;
+                            }
                         }
 
                     }
                 }
-
+            } else if (dots_to_win == count2 - 2){
                 for (int i = 0; i < map.length; i++) {
                     for (int j = 0; j < map[i].length; j++) {
-                        if(!isCellValid(x, y,size) && i == j) {
-                            x = i;
-                            y = j;
+                        if(i == j) {
+                            if(!isCellValid(x, y,size)) {
+                                x = i;
+                                y = j;
+                            }
                         }
+
                     }
-                }
-                // Строки
-
+                } //Вот отсюда и ниже не работает, потому что при проверке строк у меня обнуляется count, когда я перехожу на проверку следующей строчки,
+                // и даже если там и было допустим 2, то на выходе из цикла будет -3 по последней строчке.
+                // На самом деле с другими параметрами аналогично
+            } else if (dots_to_win == count3 - 2) { // Строки
                 for (int i = 0; i < map.length; i++) {
-
                     for (int j = 0; j < map[i].length; j++) {
                         if(!isCellValid(x,y,size)) {
                             x = i;
@@ -112,6 +117,7 @@ public class CrossAndZeroes {
                     }
 
                 }
+            } else if (dots_to_win == count4 - 2) {
                 // Столбцы
 
                 for (int i = 0; i < map.length; i++) {
@@ -119,7 +125,9 @@ public class CrossAndZeroes {
                         x = i;
                         y = j;
                     }
-                } // Диагонали при поле 5 и дотс 4
+                }
+            } else if (dots_to_win == count5 - 2) {
+                // Диагонали при поле 5 и дотс 4
 
                 for (int i = 0; i < map.length; i++) {
                     for (int j = 0; j < map[i].length; j++) {
@@ -134,9 +142,10 @@ public class CrossAndZeroes {
                         y = j;
                     }
                 }
-
+            } else {
                 x = random.nextInt(size);
                 y = random.nextInt(size);
+            }
 
         } while (!isCellValid(x, y, size));
         System.out.println("Компьютер походил в " + (x + 1) + " " + (y + 1));
@@ -191,103 +200,103 @@ public class CrossAndZeroes {
             }
         }
 
-//        //Условия победы строк
-//        count3 = 0;
-//        step1 = 0;
-//        for (int i = 0; i < map.length; i++) {
-//            if (i == step1) {
-//                count3 = 0;
-//                for (int j = 0; j < map[i].length; j++) {
-//                    if (map[i][j] != dot) {
-//                        count3--;
-//                    }
-//                    if (map[i][j] == dot) {
-//                        count3++;
-//                        if (dots_to_win == count3) {
-//                            return true;
-//                        }
-//                    }
-//                }
-//                step1++;
-//            }
-//        }
-//
-//        //Условие победы столбцов
-//        count4 = 0;
-//        step2 = 0;
-//        do {
-//            for (int i = 0; i < map.length; i++) {
-//                for (int j = 0; j < map.length; j++) {
-//
-//                    if(j == step2) {
-//                        if (map[i][j] != dot) {
-//                            count4--;
-//                        }
-//                        if (map[i][j] == dot) {
-//                            count4++;
-//                            if (dots_to_win == count4) {
-//                                return true;
-//                            }
-//                        }
-//                    }
-//                }
-//
-//            }
-//            count4 = 0;
-//            step2++;
-//        } while (step2 < map.length);
-//
-//
-//        //Условие победы побочных диагоналей при DOTS_TO_WIN = 4 на поле 5;
-//        /**
-//         * Я пыталась написать в общем виде, чтобы на любом размере поля больше 5 при параметре DOTS_TO_WIN = 4
-//         * все возможные диагонали давали победу при 4х точках, но условие очень сложное получается.
-//         * Я не исключаю, что можно найти закономерность, но у меня не получилось((
-//         * Поэтому DOTS_TO_WIN = 4 будет работать только на поле 5 ((
-//         */
-//        count5 = 0;
-//        step3 = 1;
-//        for (int i = 0; i < map.length; i++) {
-//            for (int j = 0; j < map[i].length; j++) {
-//                if (map[i][j] == dot) {
-//                    if (i + j == step3) {
-//                        count5++;
-//                        if ( dots_to_win == count5) {
-//                            return true;
-//                        }
-//                        step3 = step3 + 2;
-//                    }
-//                }
-//            }
-//        }
-//        count6 = 0;
-//        for (int i = 0; i < map.length; i++) {
-//            for (int j = 0; j < map[i].length; j++) {
-//                if (i + j == 3) {
-//                    if (map[i][j] != dot) {
-//                        count6--;
-//                    }
-//                    if (map[i][j] == dot) {
-//                        count6++;
-//                        if ( dots_to_win == count6) {
-//                            return true;
-//                        }
-//                    }
-//                    if (i + j == 5) {
-//                        if (map[i][j] != dot) {
-//                            count6--;
-//                        }
-//                        if (map[i][j] == dot){
-//                            count6++;
-//                            if (dots_to_win == count6) {
-//                                return true;
-//                            }
-//                        }
-//
-//                    }
-//                }
-//            }
-//        }
+        //Условия победы строк
+        count3 = 0;
+        step1 = 0;
+        for (int i = 0; i < map.length; i++) {
+            if (i == step1) {
+                count3 = 0;
+                for (int j = 0; j < map[i].length; j++) {
+                    if (map[i][j] != dot) {
+                        count3--;
+                    }
+                    if (map[i][j] == dot) {
+                        count3++;
+                        if (dots_to_win == count3) {
+                            return true;
+                        }
+                    }
+                }
+                step1++;
+            }
+        }
+
+        //Условие победы столбцов
+        count4 = 0;
+        step2 = 0;
+        do {
+            for (int i = 0; i < map.length; i++) {
+                for (int j = 0; j < map.length; j++) {
+
+                    if(j == step2) {
+                        if (map[i][j] != dot) {
+                            count4--;
+                        }
+                        if (map[i][j] == dot) {
+                            count4++;
+                            if (dots_to_win == count4) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+
+            }
+            count4 = 0;
+            step2++;
+        } while (step2 < map.length);
+
+
+        //Условие победы побочных диагоналей при DOTS_TO_WIN = 4 на поле 5;
+        /**
+         * Я пыталась написать в общем виде, чтобы на любом размере поля больше 5 при параметре DOTS_TO_WIN = 4
+         * все возможные диагонали давали победу при 4х точках, но условие очень сложное получается.
+         * Я не исключаю, что можно найти закономерность, но у меня не получилось((
+         * Поэтому DOTS_TO_WIN = 4 будет работать только на поле 5 ((
+         */
+        count5 = 0;
+        step3 = 1;
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j] == dot) {
+                    if (i + j == step3) {
+                        count5++;
+                        if ( dots_to_win == count5) {
+                            return true;
+                        }
+                        step3 = step3 + 2;
+                    }
+                }
+            }
+        }
+        count6 = 0;
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (i + j == 3) {
+                    if (map[i][j] != dot) {
+                        count6--;
+                    }
+                    if (map[i][j] == dot) {
+                        count6++;
+                        if ( dots_to_win == count6) {
+                            return true;
+                        }
+                    }
+                    if (i + j == 5) {
+                        if (map[i][j] != dot) {
+                            count6--;
+                        }
+                        if (map[i][j] == dot){
+                            count6++;
+                            if (dots_to_win == count6) {
+                                return true;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
 
         return false;
     }
