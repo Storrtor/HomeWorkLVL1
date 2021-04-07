@@ -54,12 +54,12 @@ public class Employee {
 
     /**
      * №5. Проверяет возраст сотрудников и выводит инфо о тех, кто старше 40
-     * @param array
+     * @param
      */
-    public void checkArray(Employee[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (this.age > 40) {
-                array[i].toString();
+    public static void checkArray(Employee[] employees) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].age > 40) {
+                employees[i].toString();
             }
         }
     }
