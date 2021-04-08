@@ -33,14 +33,6 @@ public class Employee {
      */
     @Override
     public String toString() {
-        System.out.println("Employee {" +
-                "fullName = '" + fullName + '\'' +
-                ", position = '" + position + '\'' +
-                ", email = '" + email + '\'' +
-                ", number = " + number +
-                ", salary = " + salary +
-                ", age = " + age +
-                '}');
         return "Employee {" +
                 "fullName = '" + fullName + '\'' +
                 ", position = '" + position + '\'' +
@@ -49,7 +41,6 @@ public class Employee {
                 ", salary = " + salary +
                 ", age = " + age +
                 '}';
-
     }
 
     /**
@@ -62,6 +53,10 @@ public class Employee {
                 employees[i].toString();
             }
         }
+    }
+
+    public void info(){
+        System.out.println(this.toString());
     }
 
 

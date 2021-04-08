@@ -5,7 +5,7 @@ public class HomeWork5 {
     public static void main(String[] args) {
 
         Employee employee = new Employee();
-        employee.toString();
+        employee.info();
 
         /**
          * №4 Создание массива
