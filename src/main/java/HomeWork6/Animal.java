@@ -5,6 +5,8 @@ public class Animal {
      * №4. Подсчет созданных животных
      */
     public static int count = 0;
+    public static int count1 = 0;
+    public static int count2 = 0;
 
     protected String name;
 

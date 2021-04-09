@@ -9,11 +9,11 @@ public class AnimalApp {
         Cat cat1 = new Cat("Mur");
 
 
-        dog.run(50);
-        dog.swim(7);
-
-        cat.run(150);
-        cat.swim(7);
+//        dog.run(50);
+//        dog.swim(7);
+//
+//        cat.run(150);
+//        cat.swim(7);
 
 
 

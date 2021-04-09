@@ -4,7 +4,8 @@ public class Dog extends Animal{
 
     public Dog(String name) {
         super(name);
-        System.out.println("Собака №" + count);
+        count2++;
+        System.out.println("Собака №" + count2);
     }
 
     @Override
