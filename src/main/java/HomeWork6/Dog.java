@@ -4,7 +4,6 @@ public class Dog extends Animal{
 
     public Dog(String name) {
         super(name);
-        count++;
         System.out.println("Собака №" + count);
     }
 

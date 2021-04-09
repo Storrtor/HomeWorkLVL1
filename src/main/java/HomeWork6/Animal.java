@@ -12,7 +12,7 @@ public class Animal {
     }
 
     protected void run(int range){
-        System.out.println(name + "пробежал " + range + " м");
+        System.out.println(name + " пробежал " + range + " м");
     }
 
     protected void swim(int range){
