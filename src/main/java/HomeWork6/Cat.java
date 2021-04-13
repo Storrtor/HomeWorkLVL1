@@ -1,6 +1,8 @@
 package HomeWork6;
 
-public class Cat extends Animal{
+public class Cat extends Animal {
+
+    public static int count1 = 0;
 
     public Cat(String name) {
         super(name);
@@ -10,6 +12,7 @@ public class Cat extends Animal{
 
     @Override
     protected void run(int range) {
+        super.validateRange(range);
         validateRun(range);
         super.run(range);
 
@@ -20,14 +23,12 @@ public class Cat extends Animal{
         System.out.println("Кот не умеет плавать");
     }
 
+
     @Override
     protected void validateRun(int range) {
-        if(range < 0) {
-            throw new IllegalArgumentException("Расстояние не может быть отрицательным");
-        } else if(range > 200){
+        super.validateRange(range);
+        if (range > 200) {
             throw new IllegalArgumentException("Кот не может пробежать больше 200 метров");
         }
     }
-
-
 }
